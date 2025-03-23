@@ -1,0 +1,5 @@
+name: pid-controller
+dependencies:
+  - python=3.13
+  - conda-forge::numpy=2.2.4
+  - conda-forge::matplotlib=3.10.1
