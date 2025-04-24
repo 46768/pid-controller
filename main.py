@@ -2,10 +2,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 p_term = 0.125
-i_term = 0.00001
+i_term = 0.0001
 d_term = 0.2
 
-timestep = 0.1
+timestep = 0.0001
 
 process_event = 0
 setpoint = 100
@@ -17,7 +17,12 @@ gravity = 9.8 * timestep
 
 frame_passed = 0
 step_passed = 0
-frame_limit = 12000
+frame_limit = 600
+
+
+def sp():
+    return np.sin((frame_passed/frame_limit) * 4 * np.pi) * 100
+
 
 speed = 0
 error_integral = 0
@@ -34,7 +39,7 @@ proportional_array = []
 error_array = []
 
 while frame_passed < frame_limit:
-    setpoint = np.sin((frame_passed/frame_limit) * 4 * np.pi) * 100
+    setpoint = sp()
     setpoint_array.append(setpoint)
 
     distance_array.append(process_event)
